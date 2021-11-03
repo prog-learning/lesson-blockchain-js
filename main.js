@@ -8,20 +8,23 @@ const toHash = (str) => {
   // 同じ文字列を使ってハッシュ化した場合は必ず同じ値になる
 };
 
+console.log(toHash('hello')); // 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+console.log(toHash('hello!')); // ce06092fb948d9ffac7d1a376e404b26b7575bcc11ee05a4615fef4fec3a308b
+
 /* Block */
 const firstBlock = {
   index: 0, // ブロック番号
   timestamp: new Date(), // 時刻
   data: '世界最古のブロック', // ブロックに追加するデータ
   previousHash: '0', // 前のブロックのハッシュ
-  hash: toHash('世界最古のブロック'), // ブロックのハッシュ
+  hash: toHash(0 + '世界最古のブロック' + 0), // ブロックのハッシュ
   nonce: 0, // nonce
 };
 
 /* Block Chain */
 const blockChain = {
   chain: [firstBlock], // ブロックチェーン（台帳）
-  transaction: ['2代目ブロック', '3代目ブロック', '4代目JSONSブラザーズ'], // 待ちのデータたち
+  transaction: ['2代目ブロック', '3代目ブロック', '4代目JSONSブラザーズ'], // 保存待ちのデータたち
 };
 
 /* Block Chain に Block を追加する処理 */
@@ -31,7 +34,7 @@ const addBlock = () => {
   const data = blockChain.transaction[0]; // 現在のブロックに追加する待ちのデータ
 
   /* nonceを見つける処理（POW） */
-  const { nonce, hash } = proofOfWork(previousHash, data, 2);
+  const { nonce, hash } = proofOfWork(previousHash, data, 4);
   console.log(nonce);
 
   /* 追加されるBlock */
