@@ -1,0 +1,13 @@
+{
+  "name": "lesson-blockchain-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "nbr41to <nbr.41to@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node main.js"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  }
+}
